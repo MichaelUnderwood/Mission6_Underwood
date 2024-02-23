@@ -1,15 +1,19 @@
+//Author: Michael Underwood
+//3-2
+
+
 using Microsoft.EntityFrameworkCore;
+using Mission6_Underwood.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<Mission6_Underwood.Models.FormContext>(options =>
+builder.Services.AddDbContext<MovieContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:MovieConnection"]);
 });
-
 
 var app = builder.Build();
 
